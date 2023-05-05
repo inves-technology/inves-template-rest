@@ -1,0 +1,43 @@
+{
+  // "workbench.colorCustomizations": {
+  //   "titleBar.activeForeground": "#000000",
+  //   "titleBar.inactiveForeground": "#000000CC",
+  //   "titleBar.activeBackground": "#ffffff",
+  //   "titleBar.inactiveBackground": "#ffffffCC",
+  //   "statusBar.background": "#ffffff",
+  //   "statusBar.foreground": "#000000"
+  // },
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/.aws": true,
+    ".serverless": true,
+    "build": true,
+    "**/.terraform": true,
+    "**/.terraform.lock.hcl": true,
+    "**/terraform.tfstate.d": true
+  },
+  "files.eol": "\n",
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  "editor.trimAutoWhitespace": true,
+  "editor.formatOnPaste": true,
+  "eslint.packageManager": "yarn",
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "eslint.alwaysShowStatus": true,
+  "breadcrumbs.enabled": true,
+  "editor.renderControlCharacters": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.rules.customizations": [
+    { "rule": "*", "severity": "warn" },
+  ]  
+}

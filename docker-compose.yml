@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  inves-template-rest:
+    container_name: ${PROJECT}
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        PROJECT: ${PROJECT}
+    ports:
+      - '4000:4000'
+    volumes:
+      - '/${PROJECT}/source/node_modules'
+      - '/${PROJECT}/source/build'
+      - './.aws:/root/.aws:delegated'
+      - '.:/${PROJECT}/source:delegated'
+    environment:
+      - NODE_ENV=development
+      - AWS_PROFILE=inves-global
+      - PROJECT=${PROJECT}
+    entrypoint: top
+    networks:
+      - inves-global
+    logging:
+      driver: none
+
+networks:
+  inves-global:
+    name: inves-global
+    external: true

@@ -1,0 +1,10 @@
+{
+  "restartable": "rs",
+  "ignore": ["src/**/*.test.ts", ".git", "node_modules/", "build/", "coverage/"],
+  "watch": ["src/"],
+  "exec": "etsc && node ./build/src/app-local.js",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ext": "js,json,ts"
+}
