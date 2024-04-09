@@ -33,13 +33,14 @@ AWSPROFILE=inves-technology
 AWSREGION=af-south-1
 # Init and copy template from github:
 mkdir $SERVICENAME && \
-  git clone https://github.com/inves-technology/inves-template-rest.git $SERVICENAME && \
+  git clone --branch feature/upgrade-latest https://github.com/inves-technology/inves-template-rest.git $SERVICENAME && \
   cd "$_" && \
   rm -rf .git && \
   grep -rl inves-template-rest . --exclude=README.md | xargs sed -i 's/inves-template-rest/'"$SERVICENAME"'/g' && \
   grep -rl inves-technology . --exclude=README.md | xargs sed -i 's/inves-technology/'"$AWSPROFILE"'/g' && \
   grep -rl af-south-1 . --exclude=README.md | xargs sed -i 's/af-south-1/'"$AWSREGION"'/g' && \
   git init && git checkout -b main && git add . && git commit -am "🎉 Initial Commit" && \
+  corepack enable && \
   make yarn && make init && \
   code .
 # Note: ignore warnings about Terraform workspaces that already exist. 

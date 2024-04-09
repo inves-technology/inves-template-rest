@@ -72,8 +72,8 @@ generate:
 
 yarn: 
 	@echo "🚀 Doing base yarn install..."
-	@yarn --ignore-optional
-
+	@yarn
+	
 run: yarn
 	@echo "🚀 Starting the $(project) service..."
 	yarn dev
