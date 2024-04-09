@@ -4,7 +4,7 @@ terraform {
     workspace_key_prefix = "environments"
     key                  = "inves-template-rest"
     profile              = "inves-global"
-    region               = "eu-west-1"
+    region               = "af-south-1"
   }
 
   required_providers {
@@ -17,7 +17,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "eu-west-1"
+  region = "af-south-1"
 }
 
 module "inves-template-rest-lambda" {

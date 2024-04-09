@@ -16,9 +16,9 @@ A simple Hello World Lambda function featuring:
 
 ## Prerequisites
 
-- Terraform installed
+- Terraform installed. Test: `terraform --version`
+- AWS CLI installed, and configured with an appropriate profile. We use profiles extensively since we often need to switch between various AWS environments. Test: `aws --version`
 - A terraform backend state bucket created. We share one bucket between the projects. E.g. `aws s3 mb s3://inves-technology-terraform-state --region af-south-1`. Naming convention is `$AWSPROFILE}-terraform-state`
-- AWS CLI installed, and configured with an appropriate profile. We use profiles extensively since we often need to switch between various AWS environments
 
 ## Create project from template
 
