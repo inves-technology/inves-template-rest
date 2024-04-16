@@ -30,7 +30,7 @@ A simple Hello World Lambda function featuring:
 # Set New Service name & other variables:
 SERVICENAME=hello-world-from-template
 AWSPROFILE=inves-technology
-AWSREGION=af-south-1
+AWSREGION=eu-west-1
 # Init and copy template from github:
 mkdir $SERVICENAME && \
   git clone --branch feature/upgrade-latest https://github.com/inves-technology/inves-template-rest.git $SERVICENAME && \

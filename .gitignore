@@ -17,6 +17,7 @@ cdktf.log
 .gen
 .terraform
 infrastructure/builds
+terraform.lock.hcl
 *tfplan*
 
 # Security report
