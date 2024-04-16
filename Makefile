@@ -132,7 +132,7 @@ destroy:
 init:
 	@echo "Initialising Terraform"
 	@echo ""
-	terraform -chdir='./infrastructure' init
+	terraform -chdir='./infrastructure' init --upgrade
 	terraform -chdir='./infrastructure' workspace new dev || true
 	terraform -chdir='./infrastructure' workspace new prod || true
 

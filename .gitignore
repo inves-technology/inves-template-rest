@@ -24,3 +24,6 @@ zap-report.html
 
 # Node modules
 node_modules
+
+# Yarn
+.yarn
