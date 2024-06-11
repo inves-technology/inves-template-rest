@@ -22,7 +22,6 @@
   "editor.detectIndentation": false,
   "editor.trimAutoWhitespace": true,
   "editor.formatOnPaste": true,
-  "eslint.packageManager": "yarn",
   "editor.formatOnSave": true,
   "[javascript]": {
     "editor.formatOnSave": false
@@ -31,13 +30,10 @@
     "editor.formatOnSave": false
   },
   "eslint.validate": ["javascript", "typescript"],
-  "eslint.alwaysShowStatus": true,
   "breadcrumbs.enabled": true,
   "editor.renderControlCharacters": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit"
   },
-  "eslint.rules.customizations": [
-    { "rule": "*", "severity": "warn" },
-  ]  
+  "eslint.rules.customizations": [{ "rule": "*", "severity": "warn" }]
 }

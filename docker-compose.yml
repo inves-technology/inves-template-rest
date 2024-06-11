@@ -1,4 +1,3 @@
-version: '3.8'
 services:
   inves-template-rest:
     container_name: ${PROJECT}
