@@ -62,6 +62,7 @@ mkdir $SERVICENAME && \
   grep -rl inves-technology . --exclude=README.md | LC_ALL=C xargs sed -i '' -e 's/inves-technology/'"$AWSPROFILE"'/g' && \
   grep -rl af-south-1 . --exclude=README.md | LC_ALL=C xargs sed -i '' -e 's/af-south-1/'"$AWSREGION"'/g' && \
   git init && git checkout -b main && git add . && git commit -am "🎉 Initial Commit" && \
+  corepack enable && \
   make yarn && make init && \
   code .
 # Note: ignore warnings about Terraform workspaces that already exist. 
