@@ -1,4 +1,4 @@
-FROM node:iron-alpine
+FROM node:jod-alpine
 # PROJECT arg to be passed in from docker-compose and/or .env file
 ARG PROJECT=unnamedProject
 ARG HASHICORP_PRODUCT=terraform 
