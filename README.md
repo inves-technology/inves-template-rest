@@ -16,9 +16,9 @@ A simple Hello World Lambda function featuring:
 
 ## Prerequisites
 
-- Terraform installed
+- Terraform installed. Test: `terraform --version`
+- AWS CLI installed, and configured with an appropriate profile. We use profiles extensively since we often need to switch between various AWS environments. Test: `aws --version`
 - A terraform backend state bucket created. We share one bucket between the projects. E.g. `aws s3 mb s3://inves-technology-terraform-state --region af-south-1`. Naming convention is `$AWSPROFILE}-terraform-state`
-- AWS CLI installed, and configured with an appropriate profile. We use profiles extensively since we often need to switch between various AWS environments
 
 ## Create project from template
 
@@ -30,16 +30,17 @@ A simple Hello World Lambda function featuring:
 # Set New Service name & other variables:
 SERVICENAME=hello-world-from-template
 AWSPROFILE=inves-technology
-AWSREGION=af-south-1
+AWSREGION=eu-west-1
 # Init and copy template from github:
 mkdir $SERVICENAME && \
-  git clone https://github.com/inves-technology/inves-template-rest.git $SERVICENAME && \
+  git clone --branch feature/upgrade-latest https://github.com/inves-technology/inves-template-rest.git $SERVICENAME && \
   cd "$_" && \
   rm -rf .git && \
   grep -rl inves-template-rest . --exclude=README.md | xargs sed -i 's/inves-template-rest/'"$SERVICENAME"'/g' && \
   grep -rl inves-technology . --exclude=README.md | xargs sed -i 's/inves-technology/'"$AWSPROFILE"'/g' && \
   grep -rl af-south-1 . --exclude=README.md | xargs sed -i 's/af-south-1/'"$AWSREGION"'/g' && \
   git init && git checkout -b main && git add . && git commit -am "🎉 Initial Commit" && \
+  corepack enable && \
   make yarn && make init && \
   code .
 # Note: ignore warnings about Terraform workspaces that already exist. 
@@ -61,6 +62,7 @@ mkdir $SERVICENAME && \
   grep -rl inves-technology . --exclude=README.md | LC_ALL=C xargs sed -i '' -e 's/inves-technology/'"$AWSPROFILE"'/g' && \
   grep -rl af-south-1 . --exclude=README.md | LC_ALL=C xargs sed -i '' -e 's/af-south-1/'"$AWSREGION"'/g' && \
   git init && git checkout -b main && git add . && git commit -am "🎉 Initial Commit" && \
+  corepack enable && \
   make yarn && make init && \
   code .
 # Note: ignore warnings about Terraform workspaces that already exist. 

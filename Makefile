@@ -72,8 +72,8 @@ generate:
 
 yarn: 
 	@echo "🚀 Doing base yarn install..."
-	@yarn --ignore-optional
-
+	@yarn
+	
 run: yarn
 	@echo "🚀 Starting the $(project) service..."
 	yarn dev
@@ -88,13 +88,11 @@ compile: yarn lint
 
 test: yarn 
 	@echo "🚀 Testing the $(project) service..."
-	@echo "📓 Using -maxWorkers=50% as per https://dev.to/vantanev/make-your-jest-tests-up-to-20-faster-by-changing-a-single-setting-i36"
-	yarn jest --maxWorkers=50%
+	yarn jest 
 
 test-watch: yarn 
 	@echo "🚀 Testing the $(project) service..."
-	@echo "📓 Using -maxWorkers=25% as per https://dev.to/vantanev/make-your-jest-tests-up-to-20-faster-by-changing-a-single-setting-i36"
-	yarn jest --watch --maxWorkers=25%
+	yarn jest --watch 
 
 lint: yarn 
 	@echo "🚀 Checking Linting..."
@@ -132,7 +130,7 @@ destroy:
 init:
 	@echo "Initialising Terraform"
 	@echo ""
-	terraform -chdir='./infrastructure' init
+	terraform -chdir='./infrastructure' init --upgrade
 	terraform -chdir='./infrastructure' workspace new dev || true
 	terraform -chdir='./infrastructure' workspace new prod || true
 

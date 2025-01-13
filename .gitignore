@@ -17,6 +17,7 @@ cdktf.log
 .gen
 .terraform
 infrastructure/builds
+.terraform.lock.hcl
 *tfplan*
 
 # Security report
@@ -24,3 +25,6 @@ zap-report.html
 
 # Node modules
 node_modules
+
+# Yarn
+.yarn

@@ -4,20 +4,20 @@ terraform {
     workspace_key_prefix = "environments"
     key                  = "inves-template-rest"
     profile              = "inves-global"
-    region               = "eu-west-1"
+    region               = "af-south-1"
   }
 
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.18"
+      version = "~> 5.32"
     }
   }
-  required_version = ">= 1.2.2"
+  required_version = ">= 1.7.0"
 }
 
 provider "aws" {
-  region = "eu-west-1"
+  region = "af-south-1"
 }
 
 module "inves-template-rest-lambda" {
@@ -25,7 +25,7 @@ module "inves-template-rest-lambda" {
   function_name              = "inves-template-rest-${terraform.workspace}"
   description                = "Hello World Lambda - ${terraform.workspace}"
   handler                    = "./src/app-lambda.handler"
-  runtime                    = "nodejs18.x"
+  runtime                    = "nodejs22.x"
   create_lambda_function_url = true
   create_package             = false
   local_existing_package     = "../build/deploy.zip"

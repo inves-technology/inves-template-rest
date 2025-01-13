@@ -1,10 +1,15 @@
 import winston from 'winston';
 import { Config } from './config';
 
+const customFormat = winston.format.printf((logInfo: winston.Logform.TransformableInfo): string => {
+  const { level, ms, message, stack } = logInfo;
+  const formattedMessage = `[${level}]\t|${String(ms)}\t|${String(message)}`;
+  const formattedStack = stack ? `\nStack:\n${JSON.stringify(stack, null, 2)}` : '';
+
+  return `${formattedMessage}${formattedStack}`;
+});
+
 export function createLogger(config: Config) {
-  const customFormat = winston.format.printf((logInfo): string => {
-    return `[${logInfo.level}]\t|${logInfo.ms}\t|${logInfo.message}` + (logInfo.stack ? `\n\Stack:\n${logInfo.stack}` : '');
-  });
   const logger = winston.createLogger({
     level: 'info',
     defaultMeta: { service: config.project, stage: config.stage },

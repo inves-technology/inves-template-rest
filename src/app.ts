@@ -1,6 +1,6 @@
 import { addSecurityHeaders } from './add-security-headers';
 import { createLogger } from './create-logger';
-import { getConfig } from './config';
+import { getConfig, Config } from './config';
 import { home } from './home';
 import dotenv from 'dotenv';
 import Koa from 'koa';
@@ -19,7 +19,7 @@ app.context.config = getConfig();
 
 // loggers
 app.use(koaLogger());
-app.context.logger = createLogger(app.context.config);
+app.context.logger = createLogger(app.context.config as Config);
 
 // routes
 router.get('/', home);
