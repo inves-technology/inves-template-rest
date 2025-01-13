@@ -1,4 +1,5 @@
 {
+  // EXAMPLE OF CHANGING EDITOR COLORS
   // "workbench.colorCustomizations": {
   //   "titleBar.activeForeground": "#000000",
   //   "titleBar.inactiveForeground": "#000000CC",
@@ -24,10 +25,10 @@
   "editor.formatOnPaste": true,
   "editor.formatOnSave": true,
   "[javascript]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "[typescript]": {
-    "editor.formatOnSave": false
+    "editor.formatOnSave": true
   },
   "eslint.validate": ["javascript", "typescript"],
   "breadcrumbs.enabled": true,

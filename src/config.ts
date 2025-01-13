@@ -1,7 +1,7 @@
-export type Config = {
+export interface Config {
   stage: string;
   project: string;
-};
+}
 
 export function getConfig() {
   const config: Config = {

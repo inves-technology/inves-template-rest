@@ -88,13 +88,11 @@ compile: yarn lint
 
 test: yarn 
 	@echo "🚀 Testing the $(project) service..."
-	@echo "📓 Using -maxWorkers=50% as per https://dev.to/vantanev/make-your-jest-tests-up-to-20-faster-by-changing-a-single-setting-i36"
-	yarn jest --maxWorkers=50%
+	yarn jest 
 
 test-watch: yarn 
 	@echo "🚀 Testing the $(project) service..."
-	@echo "📓 Using -maxWorkers=25% as per https://dev.to/vantanev/make-your-jest-tests-up-to-20-faster-by-changing-a-single-setting-i36"
-	yarn jest --watch --maxWorkers=25%
+	yarn jest --watch 
 
 lint: yarn 
 	@echo "🚀 Checking Linting..."
